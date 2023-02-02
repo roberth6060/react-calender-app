@@ -16,7 +16,12 @@ console.log(curDate);
   // Variables: 
   const year = moment(curDate).format("YYYY");
   const  month = moment(curDate).format("MM");
-  
+
+  const lastDays = moment(curDate).subtract("month").daysInMonth();
+  const curDays = moment().daysInMonth();
+  console.log(curDate);
+  console.log(lastDays)
+
   const  yearAndMonth = moment(month).format("MMMM") + " " + year;
 
     return (
