@@ -1,21 +1,11 @@
-import React from 'react';
-import moment from 'moment';
 
-const months = moment.months();
-const year = new Date().getFullYear();
-const day = moment.now();
+import Calendar from "./components/Calender/Calender";
 
-console.log(months);
-console.log(day)
+export default function App() {
 
-
-
-function App() {
   return (
-    <div className="App">
-
-    </div>
+   <>
+    <Calendar/>
+   </>
   );
 }
-
-export default App;
