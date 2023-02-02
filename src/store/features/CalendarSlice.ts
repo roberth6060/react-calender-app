@@ -10,7 +10,6 @@ export interface CalendarState {
   curYear: number;
 }
 
-const year = new Date().getFullYear;
 const today = moment().format("YYYY-MM-DD");
 
 // Define the initial state using that type
