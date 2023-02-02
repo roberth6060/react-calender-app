@@ -10,16 +10,15 @@ import { decrement, increment } from "../../store/features/CalendarSlice";
 
 const CalendarHeader = ()=>{
   const dispatch = useAppDispatch();
-  const curMonth = useAppSelector((state)=> state.calendar.curMonth)
-  // Variables: 
-  const  year = moment(0).format("YYYY")
-  const monthAndYear = moment(0).format("MMMM") + " " + year;
+  const {curMonth, curDate} = useAppSelector((state)=> state.calendar);
 
-  // const [curMonth, setCurMonth] = useState(0);
+  // Variables: 
+  const year = moment(curDate).format("YYYY");
+  const  month = moment(curDate).format("MM");
 
     return (
     <>
-      <h2>{monthAndYear}</h2>
+      <h2>{moment(month).format("MMMM") + " " + year}</h2>
       <ArrowButton onClick={()=>dispatch(decrement())} type="submit">
       <FontAwesomeIcon icon={faAngleLeft} /> 
       </ArrowButton>

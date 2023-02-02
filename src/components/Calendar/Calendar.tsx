@@ -9,7 +9,8 @@ const Calendar = ()=> {
       <h1>Calendar for B2Match</h1>
       <CalendarHeader/>
       <CalendarContainer>
-        <CalendarGridHeader/>  
+        <CalendarGridHeader/> 
+        CalendarGrid 
       </CalendarContainer>
     </>
  

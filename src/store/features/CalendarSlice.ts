@@ -1,17 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
+import moment from "moment";
 
 // Define a type for the slice state
 export interface CalendarState {
+  curDate: string;
   curMonth: number;
   curYear: number;
 }
 
 const year = new Date().getFullYear;
+const today = moment().format("YYYY-MM-DD");
 
 // Define the initial state using that type
 const initialState: CalendarState = {
+  curDate: today,
   curMonth: 0,
   curYear: 0,
 };
@@ -24,9 +28,15 @@ export const calendarSlice = createSlice({
   reducers: {
     increment: (state) => {
       state.curMonth += 1;
+      state.curDate = moment(state.curDate)
+        .add(1, "month")
+        .format("MMMM-DD-YYYY");
     },
     decrement: (state) => {
       state.curMonth -= 1;
+      state.curDate = moment(state.curDate)
+        .subtract(1, "month")
+        .format("MMMM-DD-YYYY");
     },
 
     // Use the PayloadAction type to declare the contents of `action.payload`
