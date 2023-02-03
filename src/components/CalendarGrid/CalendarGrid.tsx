@@ -74,7 +74,7 @@ nextDays.splice(remainder);
 return (
     <CalendarDates> 
         <CalendarDate days={prevDays} type="prev"/>
-        <CalendarDate days={createMonthDates(curMonthDays, curMonth)} type="today"/>
+        <CalendarDate curDate={curDate} days={createMonthDates(curMonthDays, curMonth)} type="today"/>
         <CalendarDate days={nextDays} type="next"/>
     </CalendarDates>)
 }
