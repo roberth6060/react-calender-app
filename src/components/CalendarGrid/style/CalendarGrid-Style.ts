@@ -65,13 +65,11 @@ export const CalendarEvent = styled.span`
   font-size: 0.875rem;
   white-space: nowrap;
   text-align: left;
-
-  & > * {
-    display: block;
-    background: #6772e5;
-    color: #fff;
-    margin: 1px 2px;
-    padding: 2px 4px;
-    border-radius: 0.25rem;
-  }
+  background-color: #6772e5;
+  margin: 1px 2px;
+  text-align: center;
+  color: #fff;
+  padding: 2px 4px;
+  border-radius: 0.25rem;
+  cursor: pointer;
 `;

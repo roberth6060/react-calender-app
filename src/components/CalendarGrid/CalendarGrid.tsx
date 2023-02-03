@@ -4,7 +4,7 @@ import { CalendarDates, CalendarEvent, CalendarNumber } from "./style/CalendarGr
 
 export const CalendarGrid = ()=> {
     
-    const { curDate} = useAppSelector((state)=> state.calendar);
+    const { curDate, eventArray} = useAppSelector((state)=> state.calendar);
 
     const curDays =  Array.from(Array(moment(curDate).daysInMonth()).keys());
      const prevDays =  Array.from(Array(moment(curDate).subtract(1, "month").daysInMonth()).keys());
@@ -51,7 +51,7 @@ if (day === "Sunday") {
 
  const  days = moment(curDate).daysInMonth();
         //Returns the remainder of days / 7
-        function getRemainder(x: number, y: number) {
+      const getRemainder= (x: number, y: number)=> {
           if (Number.isInteger(y / x)) {
             return 0;
           }
@@ -94,14 +94,19 @@ console.log(prevDays);
 console.log(curDays);
 
 return (<CalendarDates>
-    {curDays.map((curDay,i)=> {      
+
+    {curDays.map((curDay,i)=> {             
         return( <div key={i}
-		className="calendar-date -date"
+		className="calendar-date today-date"
 		data-day="${number} 2"
 		data-date="${date} 03-2-2023"
 		title="${date} 03-2-2023">
+            
 		    <CalendarNumber>{ curDay + 1}</CalendarNumber>
-		    <CalendarEvent></CalendarEvent>
+		    <CalendarEvent onClick={(e)=> {
+                e.preventDefault();
+                console.log(e.target);
+            }}>event</CalendarEvent>
 		</div>)
     })}
     </CalendarDates>)

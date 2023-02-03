@@ -9,8 +9,7 @@ export interface CalendarState {
   prevDate: string;
   nextDate: string;
   curDaysArray: Array<number>;
-  curMonth: number;
-  curYear: number;
+  eventArray: Array<number>;
 }
 
 // Define the initial state using that type
@@ -19,8 +18,7 @@ const initialState: CalendarState = {
   prevDate: "",
   nextDate: "",
   curDaysArray: new Array(...Array(31)),
-  curMonth: 0,
-  curYear: 0,
+  eventArray: [],
 };
 
 export const calendarSlice = createSlice({
@@ -30,7 +28,6 @@ export const calendarSlice = createSlice({
   //acctions that can mutate state
   reducers: {
     increment: (state) => {
-      state.curMonth += 1;
       state.curDate = moment(state.curDate)
         .add(1, "month")
         .format("MMMM-DD-YYYY");
@@ -39,20 +36,19 @@ export const calendarSlice = createSlice({
       state.curDate = moment().format("YYYY-MM-DD");
     },
     decrement: (state) => {
-      state.curMonth -= 1;
       state.curDate = moment(state.curDate)
         .subtract(1, "month")
         .format("MMMM-DD-YYYY");
     },
 
     // Use the PayloadAction type to declare the contents of `action.payload`
-    incrementByAmount: (state, action: PayloadAction<number>) => {
-      state.curMonth = action.payload;
+    addEvent: (state, action: PayloadAction<number>) => {
+      // state.curMonth = action.payload;
     },
   },
 });
 
-export const { increment, decrement, incrementByAmount, showtoday } =
+export const { increment, decrement, addEvent, showtoday } =
   calendarSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
