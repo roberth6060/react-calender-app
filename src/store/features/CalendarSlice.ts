@@ -6,15 +6,19 @@ import moment from "moment";
 // Define a type for the slice state
 export interface CalendarState {
   curDate: string;
+  prevDate: string;
+  nextDate: string;
+  curDaysArray: Array<number>;
   curMonth: number;
   curYear: number;
 }
 
-const today = moment().format("YYYY-MM-DD");
-
 // Define the initial state using that type
 const initialState: CalendarState = {
-  curDate: today,
+  curDate: moment().format("YYYY-MM-DD"),
+  prevDate: "",
+  nextDate: "",
+  curDaysArray: new Array(...Array(31)),
   curMonth: 0,
   curYear: 0,
 };
@@ -32,7 +36,7 @@ export const calendarSlice = createSlice({
         .format("MMMM-DD-YYYY");
     },
     showtoday: (state) => {
-      state.curDate = today;
+      state.curDate = moment().format("YYYY-MM-DD");
     },
     decrement: (state) => {
       state.curMonth -= 1;

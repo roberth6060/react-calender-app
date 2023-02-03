@@ -11,7 +11,7 @@ import { decrement, increment ,showtoday} from "../../store/features/CalendarSli
 const CalendarHeader = ()=>{
   const dispatch = useAppDispatch();
   const {curMonth, curDate} = useAppSelector((state)=> state.calendar);
-console.log(curDate);
+
 
   // Variables: 
   const year = moment(curDate).format("YYYY");
@@ -19,8 +19,7 @@ console.log(curDate);
 
   const lastDays = moment(curDate).subtract("month").daysInMonth();
   const curDays = moment().daysInMonth();
-  console.log(curDate);
-  console.log(lastDays)
+
 
   const  yearAndMonth = moment(month).format("MMMM") + " " + year;
 
