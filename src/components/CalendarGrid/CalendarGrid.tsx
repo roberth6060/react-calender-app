@@ -7,10 +7,6 @@ export const CalendarGrid = ()=> {
     
     const { curDate} = useAppSelector((state)=> state.calendar);
 
-    const curDays =  Array.from(Array(moment(curDate).daysInMonth()).keys());
-     const prevDays =  Array.from(Array(moment(curDate).subtract(1, "month").daysInMonth()).keys());
-      const nextDays =  Array.from(Array(moment(curDate).add(1, "month").daysInMonth()).keys());
-
   let day = moment(curDate).startOf("month").format("dddd");
 
 let offset = 0;
@@ -41,21 +37,25 @@ if (day === "Sunday") {
         offset =6;
           }
 
-          // Get moment at start date of previous month
-var prevMonth = moment(curDate).startOf('month');
-var prevMonthDays = prevMonth.daysInMonth();
+// Calc prev, current, next month days
+let curMonth = moment(curDate).startOf('month');
+let curMonthDays = curMonth.daysInMonth();
+let prevMonth = moment(curDate).add(1, "month").startOf('month');
+let prevMonthDays = prevMonth.daysInMonth();
+let nextMonth = moment(curDate).add(1, "month").startOf('month');
+let nextMonthDays = nextMonth.daysInMonth();
 
-// Array to collect dates of previous month
-var prevMonthDates = [];
 
-for (var i = 0; i < prevMonthDays; i++) {
-
-  // Calculate moment based on start of previous month, plus day offset
-  var prevMonthDay = prevMonth.clone().add(i, 'days').format("YYYY-MM-DD");
-  
-  prevMonthDates.push(prevMonthDay);
+const createMonthDates = (totalDays: number, month: moment.Moment)=> {
+  // Array to collect dates of previous month
+  let prevMonthDates= [];
+  for (let i = 0; i < totalDays; i++) {
+    // Calculate moment based on start of previous month, plus day offset
+    let prevMonthDay = month.clone().add(i, 'days').format("YYYY-MM-DD");
+    prevMonthDates.push(prevMonthDay);
+  }
+  return prevMonthDates;
 }
-
 
 
  const  days = moment(curDate).daysInMonth();
@@ -69,33 +69,20 @@ for (var i = 0; i < prevMonthDays; i++) {
 let remainder = getRemainder(7, offset + days);
 
 
+const prevDays = createMonthDates(prevMonthDays, prevMonth);
+const nextDays = createMonthDates(nextMonthDays, nextMonth);
+console.log(nextDays);
 
-  
-  const prevdaysCount = moment(curDate).subtract(1, "month").daysInMonth();
-  const nextsCount = moment(curDate).add(1, "month").daysInMonth();
-
-
-prevDays.splice(0, prevdaysCount-offset);
+prevDays.splice(0, prevMonthDays-offset);
 nextDays.splice(remainder);
-
 
 prevDays.reverse();
 
-for (let  i =0; i < prevDays.length; i++) {
-    console.log(prevDays)
-   curDays.unshift(prevDays[i]);
-}
-
-console.log("nextDays", nextDays);
-
-for (let  i =0; i < nextDays.length; i++) {
-   curDays.push(nextDays[i]);
-   
-}
-console.log("prev ",prevMonthDates);
 
 return (
     <CalendarDates> 
-        <CalendarDate days={prevMonthDates} type="today"/>
+        <CalendarDate days={prevDays} type="prev"/>
+        <CalendarDate days={createMonthDates(curMonthDays, curMonth)} type="today"/>
+        <CalendarDate days={nextDays} type="next"/>
     </CalendarDates>)
 }

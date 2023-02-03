@@ -6,18 +6,18 @@ import moment from "moment";
 // Define a type for the slice state
 export interface CalendarState {
   curDate: string;
-  prevDate: string;
-  nextDate: string;
-  curDaysArray: Array<number>;
+  prevMonthDates: Array<string>;
+  nextMonthDates: Array<string>;
+  curMonthDates: Array<string>;
   eventArray: Array<number>;
 }
 
 // Define the initial state using that type
 const initialState: CalendarState = {
   curDate: moment().format("YYYY-MM-DD"),
-  prevDate: "",
-  nextDate: "",
-  curDaysArray: new Array(...Array(31)),
+  prevMonthDates: [],
+  nextMonthDates: [],
+  curMonthDates: [],
   eventArray: [],
 };
 
