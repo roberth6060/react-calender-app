@@ -1,4 +1,5 @@
-import React from "react";
+
+import moment from "moment";
 import { CalendarEvent, CalendarNumber } from "./style/CalendarDate-Style";
 
 interface IDays {
@@ -7,17 +8,20 @@ interface IDays {
 }
 const CalendarDate = (props: IDays)=> {
     return(<>
-        {props.days.map((curDay,i)=> {             
-        return( <div key={i}
+        {props.days.map((curDay,i)=> {
+        const day =  moment(curDay).format('D')         
+        return( <div key={curDay}
 		className={`calendar-date ${props.type}-date`}
-		data-day={i}
+		data-day={day}
 		data-date={curDay}
 		title={curDay}>
-		    <CalendarNumber>{ i + 1}</CalendarNumber>
+		    <CalendarNumber>{ day }</CalendarNumber>
 		    <CalendarEvent onClick={(e)=> {
                 e.preventDefault();
                 console.log(e.target);
-            }}>event</CalendarEvent>
+            }}>
+                <span>Design Course</span>
+             </CalendarEvent>
 		</div>)
     })}
     </>)

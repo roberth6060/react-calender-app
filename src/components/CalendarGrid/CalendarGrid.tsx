@@ -4,11 +4,10 @@ import { CalendarDates } from "./style/CalendarGrid-Style";
 import CalendarDate from "../common/CalendarDate/CalendarDate";
 
 export const CalendarGrid = ()=> {
-    
-    const { curDate} = useAppSelector((state)=> state.calendar);
+  
+const { curDate} = useAppSelector((state)=> state.calendar);
 
-  let day = moment(curDate).startOf("month").format("dddd");
-
+let day = moment(curDate).startOf("month").format("dddd");
 let offset = 0;
 if (day === "Sunday") {
             offset =0;
@@ -57,7 +56,6 @@ const createMonthDates = (totalDays: number, month: moment.Moment)=> {
   return prevMonthDates;
 }
 
-
  const  days = moment(curDate).daysInMonth();
         //Returns the remainder of days / 7
       const getRemainder= (x: number, y: number)=> {
@@ -68,16 +66,10 @@ const createMonthDates = (totalDays: number, month: moment.Moment)=> {
         }
 let remainder = getRemainder(7, offset + days);
 
-
 const prevDays = createMonthDates(prevMonthDays, prevMonth);
 const nextDays = createMonthDates(nextMonthDays, nextMonth);
-console.log(nextDays);
-
 prevDays.splice(0, prevMonthDays-offset);
 nextDays.splice(remainder);
-
-prevDays.reverse();
-
 
 return (
     <CalendarDates> 
