@@ -9,4 +9,9 @@ export const ArrowButton = styled.button`
   cursor: pointer;
   background: #f1f2f3;
   border: 1px solid #ddd;
+  margin-right: 0.5em;
+`;
+
+export const CalendarHead = styled.div`
+  margin: 0.5em 0;
 `;

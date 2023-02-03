@@ -5,7 +5,7 @@ export const CalendarNumber = styled.span<{
   colorText: string;
 }>`
   position: absolute;
-  top: 4px;
+  top: 7px;
   right: 10px;
   line-height: 1;
   z-index: 1;
