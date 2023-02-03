@@ -31,6 +31,9 @@ export const calendarSlice = createSlice({
         .add(1, "month")
         .format("MMMM-DD-YYYY");
     },
+    showtoday: (state) => {
+      state.curDate = today;
+    },
     decrement: (state) => {
       state.curMonth -= 1;
       state.curDate = moment(state.curDate)
@@ -45,7 +48,7 @@ export const calendarSlice = createSlice({
   },
 });
 
-export const { increment, decrement, incrementByAmount } =
+export const { increment, decrement, incrementByAmount, showtoday } =
   calendarSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type

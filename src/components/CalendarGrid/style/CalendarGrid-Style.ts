@@ -7,7 +7,8 @@ export const CalendarDates = styled.div`
   border-left: 1px solid #ddd;
   border-right: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
-  height: 35rem;
+  min-height: 30rem;
+  height: 36rem;
 
   & > * {
     position: relative;

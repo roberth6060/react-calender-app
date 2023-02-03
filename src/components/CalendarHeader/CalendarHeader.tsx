@@ -4,7 +4,7 @@ import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { ArrowButton } from "./style/CalendarHeader-style";
 import moment from "moment";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { decrement, increment } from "../../store/features/CalendarSlice";
+import { decrement, increment ,showtoday} from "../../store/features/CalendarSlice";
 
 
 
@@ -30,6 +30,7 @@ console.log(curDate);
       <ArrowButton onClick={()=>dispatch(decrement())} type="submit">
       <FontAwesomeIcon icon={faAngleLeft} /> 
       </ArrowButton>
+      <ArrowButton onClick={()=>dispatch(showtoday())} >Today</ArrowButton>
       <ArrowButton onClick={()=>dispatch(increment())}  type="submit"> <FontAwesomeIcon icon={faAngleRight} /></ArrowButton>
     </>)
 }
