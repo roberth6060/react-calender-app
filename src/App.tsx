@@ -1,13 +1,14 @@
 
-import Calendar from "./components/Calendar/Calendar";
+import { Suspense } from "react";
 import GlobalStyle from "./GlobalStyle";
+import Routes from "./routes/Routes";
 
 export default function App() {
   
   return (
-   <>
-   <GlobalStyle/>
-    <Calendar/>
-   </>
+   <Suspense fallback={"Loading"}>
+      <GlobalStyle/>
+      <Routes/>
+   </Suspense>
   );
 }
