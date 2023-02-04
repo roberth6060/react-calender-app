@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
 import moment from "moment";
+import { getEventsList } from "../../services/queries/__generated__/getEventsList";
 
 // Define a type for the slice state
 export interface CalendarState {
@@ -10,6 +11,7 @@ export interface CalendarState {
   nextMonthDates: Array<string>;
   curMonthDates: Array<string>;
   eventArray: Array<number>;
+  events: Array<getEventsList>;
 }
 
 // Define the initial state using that type
@@ -19,6 +21,7 @@ const initialState: CalendarState = {
   nextMonthDates: [],
   curMonthDates: [],
   eventArray: [],
+  events: [],
 };
 
 export const calendarSlice = createSlice({
@@ -42,8 +45,9 @@ export const calendarSlice = createSlice({
     },
 
     // Use the PayloadAction type to declare the contents of `action.payload`
-    addEvent: (state, action: PayloadAction<number>) => {
-      // state.curMonth = action.payload;
+    addEvent: (state, action: PayloadAction<getEventsList>) => {
+      console.log(action.payload.eventList);
+      state.events = [];
     },
   },
 });
