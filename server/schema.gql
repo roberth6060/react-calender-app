@@ -16,6 +16,7 @@ type Events {
   endDate: String!
   endTime: String!
   id: ID!
+  recurring: Boolean!
   startDate: String!
   startTime: String!
   title: String!
@@ -28,6 +29,7 @@ input EventsInput {
   endDate: String!
   endTime: String!
   id: ID
+  recurring: Boolean
   startDate: String!
   startTime: String!
   title: String!

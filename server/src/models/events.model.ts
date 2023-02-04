@@ -46,6 +46,10 @@ export class Events {
   @Field()
   @Property({ type: () => String, required: true })
   endTime: string;
+
+  @Field()
+  @Property({ type: () => Boolean, required: true })
+  recurring: boolean;
 }
 
 export const EventsModel = getModelForClass(Events);

@@ -28,6 +28,7 @@ export class EventResolver {
       endDate,
       startTime,
       endTime,
+      recurring,
     }: EventsInput
   ): Promise<Events> {
     const events = (
@@ -39,6 +40,7 @@ export class EventResolver {
         endDate,
         startTime,
         endTime,
+        recurring,
       })
     ).save();
 
@@ -57,6 +59,7 @@ export class EventResolver {
       endDate,
       startTime,
       endTime,
+      recurring,
     }: EventsInput
   ): Promise<Events> {
     const events = await EventsModel.findByIdAndUpdate(
@@ -69,6 +72,7 @@ export class EventResolver {
         endDate,
         startTime,
         endTime,
+        recurring,
       },
       { new: true }
     );

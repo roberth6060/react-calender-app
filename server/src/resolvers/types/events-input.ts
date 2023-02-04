@@ -26,4 +26,7 @@ export class EventsInput implements Partial<Events> {
 
   @Field()
   endTime: string;
+
+  @Field({ nullable: true })
+  recurring: boolean;
 }
