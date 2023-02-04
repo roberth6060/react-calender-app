@@ -22,7 +22,6 @@ const CalendarHeader = ()=>{
 
   const { isOpen, toggle } = useModal();
 
-  console.log(isOpen)
     return (
     <CalendarHead>
       <h2>{`${yearAndMonth}`}</h2>

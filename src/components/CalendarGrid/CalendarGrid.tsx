@@ -2,12 +2,14 @@ import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import moment from "moment";
 import { CalendarDates } from "./style/CalendarGrid-Style";
 import CalendarDate from "../common/CalendarDate/CalendarDate";
+import { createMonthDates } from "../../helper";
 
 export const CalendarGrid = ()=> {
   
 const { curDate} = useAppSelector((state)=> state.calendar);
 
 let day = moment(curDate).startOf("month").format("dddd");
+
 let offset = 0;
 if (day === "Sunday") {
             offset =0;
@@ -45,16 +47,6 @@ let nextMonth = moment(curDate).add(1, "month").startOf('month');
 let nextMonthDays = nextMonth.daysInMonth();
 
 
-const createMonthDates = (totalDays: number, month: moment.Moment)=> {
-  // Array to collect dates of previous month
-  let prevMonthDates= [];
-  for (let i = 0; i < totalDays; i++) {
-    // Calculate moment based on start of previous month, plus day offset
-    let prevMonthDay = month.clone().add(i, 'days').format("YYYY-MM-DD");
-    prevMonthDates.push(prevMonthDay);
-  }
-  return prevMonthDates;
-}
 
  const  days = moment(curDate).daysInMonth();
         //Returns the remainder of days / 7
