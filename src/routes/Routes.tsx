@@ -3,8 +3,6 @@ import { useRoutes } from "react-router-dom";
 import { Calendar } from "../components/Calendar";
 import EventDetail from "../components/EventDetail/EventDetail";
 
-
-
 const routes = [
   {
     path: "/*",
