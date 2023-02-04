@@ -30,6 +30,22 @@ export class Events {
   @Field()
   @Property({ required: true, default: Date.now })
   updatedAt: Date;
+
+  @Field()
+  @Property({ type: () => String, required: true })
+  startDate: string;
+
+  @Field()
+  @Property({ type: () => String, required: true })
+  endDate: string;
+
+  @Field()
+  @Property({ type: () => String, required: true })
+  startTime: string;
+
+  @Field()
+  @Property({ type: () => String, required: true })
+  endTime: string;
 }
 
 export const EventsModel = getModelForClass(Events);

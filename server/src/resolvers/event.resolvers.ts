@@ -19,13 +19,26 @@ export class EventResolver {
 
   @Mutation(() => Events, { name: "createEvents" })
   async createEvents(
-    @Arg("newEventInput") { title, description, backgroundColor }: EventsInput
+    @Arg("newEventInput")
+    {
+      title,
+      description,
+      backgroundColor,
+      startDate,
+      endDate,
+      startTime,
+      endTime,
+    }: EventsInput
   ): Promise<Events> {
     const events = (
       await EventsModel.create({
         title,
         description,
         backgroundColor,
+        startDate,
+        endDate,
+        startTime,
+        endTime,
       })
     ).save();
 
@@ -35,7 +48,16 @@ export class EventResolver {
   @Mutation(() => Events, { name: "updateEvents" })
   async updateEvents(
     @Arg("editEventInput")
-    { id, title, description, backgroundColor }: EventsInput
+    {
+      id,
+      title,
+      description,
+      backgroundColor,
+      startDate,
+      endDate,
+      startTime,
+      endTime,
+    }: EventsInput
   ): Promise<Events> {
     const events = await EventsModel.findByIdAndUpdate(
       { _id: id },
@@ -43,6 +65,10 @@ export class EventResolver {
         title,
         description,
         backgroundColor,
+        startDate,
+        endDate,
+        startTime,
+        endTime,
       },
       { new: true }
     );

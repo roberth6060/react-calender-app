@@ -14,4 +14,16 @@ export class EventsInput implements Partial<Events> {
 
   @Field({ nullable: true })
   backgroundColor: string;
+
+  @Field()
+  startDate: string;
+
+  @Field()
+  endDate: string;
+
+  @Field()
+  startTime: string;
+
+  @Field()
+  endTime: string;
 }

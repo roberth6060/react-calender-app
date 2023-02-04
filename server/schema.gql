@@ -13,7 +13,11 @@ type Events {
   backgroundColor: String
   createdAt: DateTime!
   description: String!
+  endDate: String!
+  endTime: String!
   id: ID!
+  startDate: String!
+  startTime: String!
   title: String!
   updatedAt: DateTime!
 }
@@ -21,7 +25,11 @@ type Events {
 input EventsInput {
   backgroundColor: String
   description: String!
+  endDate: String!
+  endTime: String!
   id: ID
+  startDate: String!
+  startTime: String!
   title: String!
 }
 
