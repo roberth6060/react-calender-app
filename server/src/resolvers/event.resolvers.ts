@@ -3,7 +3,7 @@ import { EventsModel, Events } from "../models/events.model";
 import { EventsInput } from "./types/events-input";
 
 @Resolver((_) => Events)
-export class NotesResolver {
+export class EventResolver {
   @Query((_returns) => Events, { nullable: false, name: "events" })
   async getEventsById(@Arg("id") id: string) {
     return await EventsModel.findById({ _id: id });
