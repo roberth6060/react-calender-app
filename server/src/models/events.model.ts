@@ -7,7 +7,7 @@ import { Field, ObjectType, ID } from "type-graphql";
 
 @ObjectType({ description: "The Events Model" })
 @modelOptions({ schemaOptions: { collection: "events", timestamps: true } })
-export class Event {
+export class Events {
   @Field(() => ID)
   id: string;
 
@@ -32,4 +32,4 @@ export class Event {
   updatedAt: Date;
 }
 
-export const EventsModel = getModelForClass(Event);
+export const EventsModel = getModelForClass(Events);
