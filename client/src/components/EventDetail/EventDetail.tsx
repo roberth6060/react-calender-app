@@ -11,12 +11,10 @@ import { faCalendarXmark } from "@fortawesome/free-solid-svg-icons";
 
 
 const EventDetail = ()=> {
-
 const { date } = useParams <keyof EventRouteParams>() as EventRouteParams;
-
- const { data} = useQuery<EventList>(GET_EVENTS_LIST);
-
+const { data} = useQuery<EventList>(GET_EVENTS_LIST);
 const filtered =  data?.eventList.filter((event)=>event.startDate=== date);
+
     return (
     <Container>      
       <EventDetailsContainer>
