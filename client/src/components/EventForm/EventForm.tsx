@@ -15,7 +15,6 @@ const EventForm = () => {
       [e.target.name]: e.target.value
 
     })) 
-    // console.log(`name and value: `, e.target.name, e.target.value)
   }
   return (
     <form >
