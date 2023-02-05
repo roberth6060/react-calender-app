@@ -10,13 +10,10 @@ interface IEventList {
 const EventItem: React.FC<IEventList> = (props)=>{
   let navigate = useNavigate(); 
 
-  const routeChange = (event: any) =>{ 
-    let path = event.currentTarget.dataset.date; 
+  const routeChange = (event: React.MouseEvent<HTMLElement>) =>{ 
+    let path = event.currentTarget.dataset.date as any; 
     navigate(path);
   }
-
-
-
 
 const {id, startDate, title, startTime, endTime} = props.eventList
     return ( <CalendarEvent key={id} data-date={startDate} onClick={routeChange}>

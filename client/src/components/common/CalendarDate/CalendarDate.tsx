@@ -1,11 +1,11 @@
 
 import moment from "moment";
+import { useQuery } from "@apollo/client";
 import EventItem from "../EventItem/EventItem";
 import {  CalendarNumber } from "./style/CalendarDate-Style";
-import { useQuery } from "@apollo/client";
+
 import { GET_EVENTS_LIST } from "../../../services/queries/get-events-list";
 import { EventList_eventList, EventList } from "../../../services/queries/__generated__/EventList";
-import Spinner from "../Spinner/Spinner";
 
 
 
@@ -16,8 +16,6 @@ interface IDays {
 }
 
 const CalendarDate = (props: IDays)=> {
-
-
   const { data} = useQuery<EventList>(GET_EVENTS_LIST, {
   onCompleted(data) {
 
@@ -25,7 +23,7 @@ const CalendarDate = (props: IDays)=> {
  });
 
     return(<>
-        {props.days.map((curDay,i)=> {
+        {props.days.map((curDay)=> {
         const day =  moment(curDay).format('D');  
         return( <div key={curDay}
 		className={`calendar-date  ${props.type}-date`}

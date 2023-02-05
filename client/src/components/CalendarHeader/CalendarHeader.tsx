@@ -1,6 +1,5 @@
-import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleLeft, faAngleRight, faPlus, faPlusSquare } from "@fortawesome/free-solid-svg-icons";
+import { faAngleLeft, faAngleRight, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { ArrowButton, CalendarHead } from "./style/CalendarHeader-style";
 import moment from "moment";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
