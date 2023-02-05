@@ -8,7 +8,6 @@ import { decrement, increment ,showtoday} from "../../store/features/CalendarSli
 import useModal from "../common/Modal/useModal";
 import Modal from "../common/Modal/Modal";
 import EventForm from "../EventForm/EventForm";
-import Calendar from "../Calendar/Calendar";
 
 const CalendarHeader = ()=>{
   const dispatch = useAppDispatch();
@@ -25,7 +24,6 @@ const CalendarHeader = ()=>{
     return (
     <CalendarHead>
       <h2>{`${yearAndMonth}`}</h2>
-     
       <ArrowButton onClick={()=>dispatch(decrement())} type="submit">
       <FontAwesomeIcon icon={faAngleLeft} /> 
       </ArrowButton>

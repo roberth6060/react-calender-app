@@ -49,7 +49,7 @@ let nextMonthDays = nextMonth.daysInMonth();
 
 
  const  days = moment(curDate).daysInMonth();
-        //Returns the remainder of days / 7
+ 
       const getRemainder= (x: number, y: number)=> {
           if (Number.isInteger(y / x)) {
             return 0;
