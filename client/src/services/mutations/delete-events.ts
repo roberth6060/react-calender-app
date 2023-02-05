@@ -1,6 +1,6 @@
 import { gql, useMutation } from "@apollo/client";
 import { GET_EVENTS_LIST } from "../queries/get-events-list";
-import { getEventsList } from "../queries/__generated__/getEventsList";
+import { EventList } from "../queries/__generated__/EventList";
 import { DeleteEvent, DeleteEventVariables } from "./__generated__/DeleteEvent";
 
 const DELETE_EVENT_MUTATION = gql`
@@ -16,7 +16,7 @@ export const useDeleteEvents = () => {
   >(DELETE_EVENT_MUTATION, {
     update: (cache, { data }) => {
       if (data?.deleteEvent !== "") {
-        const existingEvents: getEventsList = cache.readQuery({
+        const existingEvents: EventList = cache.readQuery({
           query: GET_EVENTS_LIST,
         }) ?? { eventList: [] };
         const updatedEventsList = existingEvents.eventList.filter(

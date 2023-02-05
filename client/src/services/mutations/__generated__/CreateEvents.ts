@@ -17,10 +17,14 @@ export interface CreateEvents_createEvents {
   backgroundColor: string | null;
   createdAt: any;
   updatedAt: any;
+  startDate: string;
+  endDate: string;
+  startTime: string;
+  endTime: string;
+  recurring: boolean;
 }
 
 export interface CreateEvents {
-  id: any;
   createEvents: CreateEvents_createEvents;
 }
 

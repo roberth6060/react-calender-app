@@ -1,4 +1,4 @@
-import { getEventsList_eventList } from "../services/queries/__generated__/getEventsList";
+import { EventList_eventList } from "../services/queries/__generated__/EventList";
 
-export type Events = getEventsList_eventList;
+export type Events = EventList_eventList;
 export type EventsList = Events[];

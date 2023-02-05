@@ -1,6 +1,6 @@
 import { gql, useMutation } from "@apollo/client";
 import { GET_EVENTS_LIST } from "../queries/get-events-list";
-import { getEventsList } from "../queries/__generated__/getEventsList";
+import { EventList } from "../queries/__generated__/EventList";
 import {
   UpdateEvents_updateEvents,
   UpdateEventsVariables,
@@ -11,10 +11,12 @@ const EDIT_EVENT_MUTATION = gql`
     updateEvents(editEventInput: $editEventInput) {
       id
       title
-      backgroundColor
       description
-      createdAt
-      updatedAt
+      startDate
+      endDate
+      startTime
+      endTime
+      recurring
     }
   }
 `;

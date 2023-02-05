@@ -13,10 +13,12 @@ export interface UpdateEvents_updateEvents {
   __typename: "Events";
   id: string;
   title: string;
-  backgroundColor: string | null;
   description: string;
-  createdAt: any;
-  updatedAt: any;
+  startDate: string;
+  endDate: string;
+  startTime: string;
+  endTime: string;
+  recurring: boolean;
 }
 
 export interface UpdateEvents {

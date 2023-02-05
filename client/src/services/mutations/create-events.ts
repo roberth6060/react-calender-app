@@ -1,6 +1,6 @@
 import { gql, useMutation } from "@apollo/client";
 import { GET_EVENTS_LIST } from "../queries/get-events-list";
-import { getEventsList } from "../queries/__generated__/getEventsList";
+import { EventList } from "../queries/__generated__/EventList";
 import {
   CreateEvents_createEvents,
   CreateEventsVariables,
@@ -15,6 +15,11 @@ const CREATE_EVENTS_MUTATION = gql`
       backgroundColor
       createdAt
       updatedAt
+      startDate
+      endDate
+      startTime
+      endTime
+      recurring
     }
   }
 `;
@@ -25,7 +30,7 @@ export const useCreateEvents = () => {
     CreateEventsVariables
   >(CREATE_EVENTS_MUTATION, {
     update(cache, { data }) {
-      const existingEvents: getEventsList = cache.readQuery({
+      const existingEvents: EventList = cache.readQuery({
         query: GET_EVENTS_LIST,
       }) ?? { eventList: [] };
 
@@ -37,6 +42,11 @@ export const useCreateEvents = () => {
             title: data?.title,
             description: data?.description,
             backgroundColor: data?.backgroundColor,
+            startDate: data?.startDate,
+            endDate: data?.endDate,
+            startTime: data?.startTime,
+            endTime: data?.endTime,
+            recurring: data?.recurring,
           },
         ];
 

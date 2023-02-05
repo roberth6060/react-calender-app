@@ -1,46 +1,22 @@
-import { useQuery } from "@apollo/client";
-import { GET_EVENTS_LIST } from "../../../services/queries/get-events-list";
-import { getEventsList } from "../../../services/queries/__generated__/getEventsList";
-import Spinner from "../Spinner/Spinner";
+import {  EventList, EventList_eventList} from "../../../services/queries/__generated__/EventList";
 import { CalendarEvent } from "./style/EventItem";
 
-const EventItem = ()=>{
+interface IEventList {
+  eventList: EventList_eventList
+}
 
-
-    const { data, error, loading } = useQuery<getEventsList>(GET_EVENTS_LIST, {
-  onCompleted(data) {
-    console.log(data)
-    //   setCollection(data.getCars);
-    
-  },
- });
-
-   if(loading) return <Spinner/>
-   if(error) return <p>Something went wrong</p>
-
-    // const arr:getEventsList[] = [{
-    //     id: "1",
-    //     title: "Opening day",
-    //     description: "Hello WOrld",
-    //     createdAt: Date.now,
-    //     updatedAt: Date.now,
-    // }]
-    
-
-    return ( data? <CalendarEvent   onClick={(e)=> {
+const EventItem: React.FC<IEventList> = (props)=>{
+const {id, title, startTime, endTime} = props.eventList
+    return ( <CalendarEvent key={id}  onClick={(e)=> {
                 e.preventDefault();
                 console.log(e.target);
             }}>
-               {data.eventList.map((a)=>{
-                return(<>
-                <span>
-                    {a.title}
+                <span >
+                {title}
                 </span>
                 <br/>
-                <span>{a.description}</span>
-                </>)
-               })}
-             </CalendarEvent>: <span></span>)
+                <span >{`${startTime} - ${endTime}`}</span>
+</CalendarEvent>)
 }
 
 export default EventItem;
