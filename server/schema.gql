@@ -23,6 +23,7 @@ type Events {
   updatedAt: DateTime!
 }
 
+"""The Events Model"""
 input EventsInput {
   backgroundColor: String
   description: String!

@@ -1,7 +1,7 @@
 import { Field, InputType, ID } from "type-graphql";
 import { Events } from "../../models/events.model";
 
-@InputType()
+@InputType({ description: "The Events Model" })
 export class EventsInput implements Partial<Events> {
   @Field(() => ID, { nullable: true })
   id: string;

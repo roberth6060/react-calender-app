@@ -43,7 +43,6 @@ export class EventResolver {
         recurring,
       })
     ).save();
-
     return events;
   }
 
