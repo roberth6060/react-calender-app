@@ -28,12 +28,10 @@ export const CalendarDates = styled.div`
     padding-top: 100%;
   }
 
-  & > .previous-date span {
-    opacity: 0.5;
-  }
-
-  & > .next-date span {
-    opacity: 0.5;
+  & > .next-date,
+  .previous-date {
+    opacity: 0.4;
+    background: ${bgColor};
   }
 
   & > .current-date {

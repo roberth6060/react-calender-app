@@ -4,7 +4,7 @@ import { useQuery } from "@apollo/client";
 import { EventList} from "../../services/queries/__generated__/EventList";
 import { GET_EVENTS_LIST } from "../../services/queries/get-events-list";
 import { EventContent, EventDetailsContainer, ImageCalendar, NavLink } from "./style/EventDetailStyle";
-import { Container } from "../../style";
+import { CalendarSubTitle, CalendarTitle, Container } from "../../style";
 import { EventRouteParams } from "../../types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarXmark } from "@fortawesome/free-solid-svg-icons";
@@ -19,13 +19,13 @@ const filtered =  data?.eventList.filter((event)=>event.startDate=== date);
     <Container>      
       <EventDetailsContainer>
         <NavLink to="/"><FontAwesomeIcon icon={faCalendarXmark} /></NavLink>
-    <h1>Event Details</h1>
+    <CalendarTitle>Event Details</CalendarTitle>
     <ImageCalendar src="https://images.unsplash.com/photo-1513128034602-7814ccaddd4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1035&q=80" alt="calendar" />
     <EventContent>
     {        
     filtered && filtered.map(((event)=> {
       return(<>
-      <h2>{event.title}</h2>
+      <CalendarSubTitle>{event.title}</CalendarSubTitle>
       <h3>Description:</h3>
       <p>{event.description}</p>
        <h3>Date:</h3>

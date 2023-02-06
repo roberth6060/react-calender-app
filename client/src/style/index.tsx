@@ -13,6 +13,10 @@ export const Container = styled.div`
 `
 
 export const CalendarTitle = styled.h1`
-  color: ${palette.eventColor};
+  color: black;
   font-size: 3em;
+`
+export const CalendarSubTitle = styled.h3`
+  color: black;
+  font-size: 2em;
 `
