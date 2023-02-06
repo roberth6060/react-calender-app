@@ -10,6 +10,7 @@ Fork the code from **[Calendar App](https://github.com/roberth6060/react-calende
 
 * Sign-up for database at [MongoDB](https://account.mongodb.com/account/login)
 * Create a database and cluster called **calendar**
+* Create a **database user** and provide access to **notes** cluster/db
 * Allow **Network access** to your database from your workstation/client  **IP Address** .
 
 ### Server setup
@@ -22,15 +23,13 @@ Fork the code from **[Calendar App](https://github.com/roberth6060/react-calende
   ENV file format (`Server`)
 
 ```
-    DB_USERNAME=<dbUserName>
+    MANGODB_URI =<mangodbURI>
     DB_PASSWORD=<Password> 
-    DB_NAME=notes 
-    PORT=<portnumbe(3333)>
 ```
 
 ### Client setup
 
-* Use the command/shell and go to the **Client** folder (`cd Client`)
+* Use the command/shell and go to the **lclient** folder (`cd Client`)
 * Create **.env** file and enter **`listening port`** information.
 * Run `npm install` command to install npm modules and packages.
 * Run `npm run codegen` if you are making changes to graphql schema. (optional)
@@ -41,6 +40,8 @@ Fork the code from **[Calendar App](https://github.com/roberth6060/react-calende
 ```
   GRAPHQL_API_URL="http://localhost:<serverPort>/graphql"
 ```
+
+### Requirement
 
 Enjoy the App and provide the feedback at [@jainrasik](https://twitter.com/jainrasik) or open git P
 
