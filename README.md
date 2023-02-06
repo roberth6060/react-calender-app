@@ -1,4 +1,48 @@
-## Steps to follow
+# CalendarApp
+
+This App is built using React, TypeScript, Node.js, GraphQL, Apollo-server-express, Apollo Codegen, TypeGraphQL, MongoDB, Typegoose, Mongoose
+
+## Steps to Run the Application
+
+Fork the code from **[Calendar App](https://github.com/roberth6060/react-calender-app)** repo to your workstation.
+
+### Mongo Database Setup
+
+* Sign-up for database at [MongoDB](https://account.mongodb.com/account/login)
+* Create a database and cluster called **calendar**
+* Allow **Network access** to your database from your workstation/client  **IP Address** .
+
+### Server setup
+
+* Use the command/shell and go to the **Server** folder (`cd Server`)
+* Create **.env** file and enter mongodb ( **`username`** ,  **`password`** ) and **`server listening port`** information.
+* Run `npm install` command to install npm modules and packages.
+* Run `npm start` to start the server. You will see a message on command window about the **running** status.
+* Go to [http://localhost:3333/graphql](http://localhost:3333/graphql) and you will be able to execute **GraphQL queries**
+  ENV file format (`Server`)
+
+```
+    DB_USERNAME=<dbUserName>
+    DB_PASSWORD=<Password> 
+    DB_NAME=notes 
+    PORT=<portnumbe(3333)>
+```
+
+### Client setup
+
+* Use the command/shell and go to the **Client** folder (`cd Client`)
+* Create **.env** file and enter **`listening port`** information.
+* Run `npm install` command to install npm modules and packages.
+* Run `npm run codegen` if you are making changes to graphql schema. (optional)
+* Run `npm start` to start the server. You will see a message on command window about the running status.
+* Go to [http://localhost:3000](http://localhost:3000/) and you will be able to create simple notes.
+  .ENV file format (`Client`)
+
+```
+  GRAPHQL_API_URL="http://localhost:<serverPort>/graphql"
+```
+
+Enjoy the App and provide the feedback at [@jainrasik](https://twitter.com/jainrasik) or open git P
 
 1. Choose a DateTime handling library such as luxon, date-fns, or moment.js
 2. Design the calendar user interface, either following the design in the picture or creating a new design.

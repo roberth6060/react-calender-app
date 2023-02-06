@@ -33,7 +33,7 @@ const EventDetail = () => {
           {filtered &&
             filtered.map((event) => {
               return (
-                <>
+                <div  key={event.id}>
                   <CalendarSubTitle>{event.title}</CalendarSubTitle>
                   <h3>Description:</h3>
                   <p>{event.description}</p>
@@ -45,7 +45,7 @@ const EventDetail = () => {
                   <span>
                     {event.startTime} - {event.endTime}
                   </span>
-                </>
+                </div>
               );
             })}
         </EventContent>
