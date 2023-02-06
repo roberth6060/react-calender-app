@@ -19,7 +19,7 @@ Fork the code from **[Calendar App](https://github.com/roberth6060/react-calende
 * Create **.env** file and enter mongodb ( **`username`** ,  **`password`** ) and **`server listening port`** information.
 * Run `npm install` command to install npm modules and packages.
 * Run `npm start` to start the server. You will see a message on command window about the **running** status.
-* Go to [http://localhost:3333/graphql](http://localhost:3333/graphql) and you will be able to execute **GraphQL queries**
+* Go to [http://localhost:8000/graphql](http://localhost:3333/graphql) and you will be able to execute **GraphQL queries**
   ENV file format (`Server`)
 
 ```
