@@ -4,7 +4,7 @@ import { useQuery } from "@apollo/client";
 import { EventList} from "../../services/queries/__generated__/EventList";
 import { GET_EVENTS_LIST } from "../../services/queries/get-events-list";
 import { EventContent, EventDetailsContainer, ImageCalendar, NavLink } from "./style/EventDetailStyle";
-import { Container } from "../../container";
+import { Container } from "../../style";
 import { EventRouteParams } from "../../types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarXmark } from "@fortawesome/free-solid-svg-icons";

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import * as palette from './Variables';
 
 export const FlexRow = styled.div`
   display: flex;
@@ -6,9 +7,12 @@ export const FlexRow = styled.div`
 `
 
 export const Container = styled.div`
-
   position: relative;
   margin: 0 auto;
   height: 100%;
-  padding: 40px 0;
+`
+
+export const CalendarTitle = styled.h1`
+  color: ${palette.eventColor};
+  font-size: 3em;
 `

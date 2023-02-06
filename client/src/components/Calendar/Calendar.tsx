@@ -1,23 +1,22 @@
 
+import { CalendarTitle, Container } from "../../style";
 import { CalendarGrid } from "../CalendarGrid/CalendarGrid";
 import CalendarGridHeader from "../CalendarGridHeader/CalendarGridHeader";
 import CalendarHeader from "../CalendarHeader/CalendarHeader";
-import { CalendarContainer } from "./style/Calender-style";
+import { CalendarContainer } from "./style/CalenderStyle";
 
 
 
 const Calendar = ()=> {
-
-
   return (
-    <>
-      <h1>Calendar for B2Match</h1>
+    <Container>
+      <CalendarTitle>Calendar App</CalendarTitle>
       <CalendarHeader/>
       <CalendarContainer>
         <CalendarGridHeader/> 
         <CalendarGrid/> 
       </CalendarContainer>
-    </>
+    </Container>
  
   )
 }

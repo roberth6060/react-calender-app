@@ -1,6 +1,6 @@
 
 import { useRoutes } from "react-router-dom";
-import { Calendar } from "../components/Calendar";
+import Calendar from "../components/Calendar/Calendar";
 import EventDetail from "../components/EventDetail/EventDetail";
 
 const routes = [
