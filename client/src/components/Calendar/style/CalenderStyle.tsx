@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { eventColor } from "../../../style/Variables";
 
 export const CalendarContainer = styled.div`
     & > * {

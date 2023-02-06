@@ -1,12 +1,13 @@
 import styled from "styled-components";
+import { bgColor, bgOutLineColor, eventColor } from "../../../style/Variables";
 
 export const CalendarDates = styled.div`
-  background: #ddd;
+  background: ${bgOutLineColor};
   grid-column-gap: 1px;
   grid-row-gap: 1px;
-  border-left: 1px solid #ddd;
-  border-right: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
+  border-left: 1px solid ${bgOutLineColor};
+  border-right: 1px solid ${bgOutLineColor};
+  border-bottom: 1px solid ${bgOutLineColor};
   min-height: 30rem;
   height: 36rem;
 
@@ -18,7 +19,7 @@ export const CalendarDates = styled.div`
   }
 
   & > *:focus {
-    outline: 1px solid #6772e5;
+    outline: 1px solid ${eventColor};
   }
 
   & > *::before {
@@ -27,7 +28,7 @@ export const CalendarDates = styled.div`
     padding-top: 100%;
   }
 
-  & > .prev-date span {
+  & > .previous-date span {
     opacity: 0.5;
   }
 
@@ -35,8 +36,8 @@ export const CalendarDates = styled.div`
     opacity: 0.5;
   }
 
-  & > .today-date {
-    background: #dff1de;
+  & > .current-date {
+    background: ${bgColor};
   }
 
   & > .calendar-active {

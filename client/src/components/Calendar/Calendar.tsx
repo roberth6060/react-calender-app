@@ -5,8 +5,6 @@ import CalendarGridHeader from "../CalendarGridHeader/CalendarGridHeader";
 import CalendarHeader from "../CalendarHeader/CalendarHeader";
 import { CalendarContainer } from "./style/CalenderStyle";
 
-
-
 const Calendar = ()=> {
   return (
     <Container>

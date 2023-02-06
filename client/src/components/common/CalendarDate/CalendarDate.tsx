@@ -10,7 +10,7 @@ import { EventList_eventList, EventList } from "../../../services/queries/__gene
 
 
 interface IDays {
-    days: Array<string>,
+    days: Array<string> | undefined,
     type: string,
     curDate?: string,
 }
@@ -23,16 +23,18 @@ const CalendarDate = (props: IDays)=> {
  });
 
     return(<>
-        {props.days.map((curDay)=> {
+        {props.days?.map((curDay)=> {
         const day =  moment(curDay).format('D');  
-        return( <div key={curDay}
+        return( <div onClick={(e)=>{
+
+          console.log(e)
+        }} key={curDay}
 		className={`calendar-date  ${props.type}-date`}
 		data-day={day}
 		data-date={curDay}
 		title={curDay}>
 		   <CalendarNumber colorText= {props.curDate===curDay?"white": "black"} bgColor= {props.curDate===curDay?"#6772e5": ""}>{day}</CalendarNumber>
            {
-          // eslint-disable-next-line array-callback-return
           data&& data.eventList.map((event: EventList_eventList)=>{
             if(moment(curDay).format("YYYY-MM-DD") ===event.startDate)return <EventItem eventList={event}/> 
           })
