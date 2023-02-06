@@ -1,3 +1,0 @@
-web: node ./dist/index.js
-web: bundle exec rails s -p $PORT
-release: bin/rake db:migrate db:seed
