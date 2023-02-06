@@ -43,8 +43,6 @@ Fork the code from **[Calendar App](https://github.com/roberth6060/react-calende
 
 ### Requirement
 
-Enjoy the App and provide the feedback at [@jainrasik](https://twitter.com/jainrasik) or open git P
-
 1. Choose a DateTime handling library such as luxon, date-fns, or moment.js
 2. Design the calendar user interface, either following the design in the picture or creating a new design.
 3. Implement the functionality to switch between months by adding controls to the UI, such as buttons to move to the next or previous month.
