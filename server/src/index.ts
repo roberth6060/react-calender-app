@@ -6,6 +6,8 @@ import mongoose, { connect, ConnectOptions } from "mongoose";
 import * as dotenv from "dotenv";
 import path from "path";
 
+/***NOTE - You need to create your own MANGODB_URI and PORT variables in your .env file for graphql server to work */
+
 //Resolvers
 import { EventResolver } from "./resolvers/event.resolvers";
 
