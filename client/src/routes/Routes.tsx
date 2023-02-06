@@ -8,14 +8,14 @@ const routes = [
     path: "/*",
     children: [
       {
-         index: true,
+        index: true,
         element: <Calendar/>,
       },
-          {
-           path:":date",
-            element: <EventDetail />,
-          },
-        ],
+      {
+        path:":date",
+        element: <EventDetail />,
+      },
+    ],
   },  
 ];
 

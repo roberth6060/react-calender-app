@@ -4,6 +4,7 @@ import "reflect-metadata";
 import { buildSchema } from "type-graphql";
 import mongoose, { connect, ConnectOptions } from "mongoose";
 import * as dotenv from "dotenv";
+import path from "path";
 
 //Resolvers
 import { EventResolver } from "./resolvers/event.resolvers";
@@ -31,7 +32,11 @@ const executeMain = async () => {
 
   server.start().then((_) => {
     server.applyMiddleware({ app: expressServer });
-
+    //set static folder:
+    expressServer.use(Express.static("public"));
+    expressServer.get("*", (req, res) => {
+      res.sendFile(path.resolve(__dirname, "public", "index.html"));
+    });
     expressServer.listen({ port: process.env.PORT }, () =>
       console.log(
         `Server ready and listening at ==> http://localhost:${process.env.PORT}${server.graphqlPath}`

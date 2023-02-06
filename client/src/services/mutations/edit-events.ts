@@ -1,6 +1,4 @@
 import { gql, useMutation } from "@apollo/client";
-import { GET_EVENTS_LIST } from "../queries/get-events-list";
-import { EventList } from "../queries/__generated__/EventList";
 import {
   UpdateEvents_updateEvents,
   UpdateEventsVariables,

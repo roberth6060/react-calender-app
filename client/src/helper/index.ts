@@ -53,10 +53,7 @@ export const dateAdjustment = (curDate: string, type: string) => {
     offset = 6;
   }
 
-  console.log(type.trim().toLowerCase());
-
   if (type.trim().toLowerCase() === "previous") {
-    console.log("previous");
     let prevMonth = moment(curDate).add(1, "month").startOf("month");
     let prevMonthDays = prevMonth.daysInMonth();
     const nextPrev = createMonthDates(prevMonthDays, prevMonth);
@@ -65,14 +62,12 @@ export const dateAdjustment = (curDate: string, type: string) => {
   }
 
   if (type.trim().toLowerCase() === "current") {
-    console.log("current");
     let curMonth = moment(curDate).startOf("month");
     let curMonthDays = curMonth.daysInMonth();
     return createMonthDates(curMonthDays, curMonth);
   }
 
   if (type.trim().toLowerCase() === "next") {
-    console.log("next");
     const nextMonth = moment(curDate).add(1, "month").startOf("month");
     const nextMonthDays = nextMonth.daysInMonth();
     const days = moment(curDate).daysInMonth();
