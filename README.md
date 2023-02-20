@@ -65,4 +65,4 @@ Fork the code from **[Calendar App](https://github.com/roberth6060/react-calende
 * ExpressJS
 * Expresss-GraphQL
 * GraphQL
-* MangoDB
+* MongoDB
